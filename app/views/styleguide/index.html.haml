@@ -1,0 +1,28 @@
+.container
+  %h1 Styleguide
+
+  .styleguide-variables
+    .styleguide-variables-inputs
+      .styleguide-row.row.relative.hidden
+        .styleguide-delete-row.fa.fa-times-circle
+        .col-md-5= text_field_tag "", "", class: "form-control"
+        .col-md-5= text_field_tag "", "", class: "form-control"
+        .styleguide-color-swatch.col-md-2.hidden
+
+      - @styleguide_vars.each do |section|
+        - current_section = section[0]
+        - section[1].each do |row|
+          .styleguide-row.row.relative{data: {section: section}}
+            .styleguide-delete-row.fa.fa-times-circle
+            .col-md-5= text_field_tag "", row[:var], class: "form-control"
+            .col-md-5= text_field_tag "", row[:val], class: "form-control"
+            - if current_section == "Colors"
+              .styleguide-color-swatch.col-md-2{style: "background-color: #{row[:val]};"}
+            - elsif current_section == "Fonts"
+              .styleguide-text-swatch.col-md-2{style: "font-family: #{row[:val]};"}
+                Sample
+
+    / .row
+    /   = link_to "", "#", class: "styleguide-add-row btn btn-success fa fa-plus"
+    /
+    / = button_tag "Save", class: "btn btn-primary"

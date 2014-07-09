@@ -1,0 +1,31 @@
+.styleguide-variables
+  background-color: white
+  padding: 20px
+  border-radius: 4px
+
+.styleguide-row
+  border-bottom: 1px solid #CCC
+
+  // &:hover
+  //   .styleguide-delete-row
+  //     opacity: 1
+
+.styleguide-delete-row
+  position: absolute
+  z-index: 100
+  top: 5px
+  left: 0
+  font-size: 20px
+  color: lighten($brand-danger, 10%)
+  opacity: 0
+  cursor: pointer
+
+  &:hover
+    color: $brand-danger
+
+.styleguide-color-swatch
+  height: 36px
+  margin: 10px 0
+
+.styleguide-text-swatch
+  font-size: 20px
